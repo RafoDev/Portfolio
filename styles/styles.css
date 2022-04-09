@@ -15,6 +15,7 @@
     --all-transition: 0.25s;
 }
 
+
 .body{
     font-family: 'Ubuntu Mono', monospace;
     background-color: #011627;
@@ -31,17 +32,20 @@
     padding: 0.5em 0;
 }
 .header-nav__container{
-    height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1024px;
+
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
+
     padding: var(--padding-container);
     gap: 2rem;
 }
 .header-nav__link-logo-container{
-    width: 100px;
-    height: 100%;
+    width: 70px;
     flex-shrink: 0;
     overflow: hidden;
     display: flex;
@@ -55,36 +59,61 @@
     width: 100%;
 }
 
+.header-nav__menu-icon-label{
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--all-transition);
+}
+.header-nav__menu-icon-label:hover{
+    text-shadow: 0px 0px 40px rgb(223, 223, 223);
+}
+.header-nav__menu-icon-checkbox{
+    display: none;
+}
+
+.header-nav__menu-icon-checkbox:checked + .header-nav__menu-link-list{
+    left:0;
+}
+
+
 .header-nav__menu-link-list{
-    background-color: #eff8e215;
+
+    position: fixed;
+    top:100px;
+    left: 100%;
+
+    width: 100vw;
+    height: calc(100vh - 100px);
+    background-color: #5C7AFF;
     list-style: none;
-    border-radius: 1rem;
-
-    flex-grow: 0.4;
-
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    gap:2rem;
-    padding: 1rem;
+    padding-left: 0;
+
+    margin-top:0;
+    transition: var(--all-transition);
 }
+
+
+
 /* .header-nav__menu-link-item{
 } */
 .header-nav__menu-link{
     position: relative;
-    color:inherit;
+    color:#fff;
     text-decoration: none;
 }
 
 .header-nav__menu-link::after{
     content: '';
     width: 0;
-    height: 1px;
-    background-color: #5C7AFF;
+    height: 3px;
+    background-color: #ffffff;
     position:absolute;
-    top: 1.25rem;
+    bottom: -0.2rem;
     left: 0;
-
     transition: var(--all-transition);
 }
 .header-nav__menu-link:hover::after{
@@ -92,6 +121,6 @@
 }
 
 .text--medium{
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 700;
 }
